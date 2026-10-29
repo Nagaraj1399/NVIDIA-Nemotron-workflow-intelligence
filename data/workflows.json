@@ -1,0 +1,412 @@
+{
+  "wf_demo_hackathon_nvidia": {
+    "id": "wf_demo_hackathon_nvidia",
+    "title": "Competitive Evaluation: AI Workflow Automation Platforms for SMBs",
+    "objective": "Research five AI workflow automation platforms suitable for small businesses. Compare documented features, integrations, pricing where available, strengths, limitations, and suitability. Recommend the three best options and produce an evidence-based decision report.",
+    "context": "Nebius x NVIDIA AI Hackathon demonstration benchmark. Target audience is small business owners and technical leads seeking sustainable ROI.",
+    "referenceUrls": [
+      "https://make.com/en/pricing",
+      "https://n8n.io/pricing",
+      "https://zapier.com/central",
+      "https://relay.app",
+      "https://lindy.ai"
+    ],
+    "outputFormat": "Comprehensive 10-Section Decision Report",
+    "constraints": "Verify pricing against documented 2026 tiers; separate verified findings from assumptions.",
+    "status": "completed",
+    "modelUsed": "nvidia/llama-3.1-nemotron-70b-instruct",
+    "approvalRequired": true,
+    "maxTasks": 6,
+    "tasks": [
+      {
+        "id": "task_1",
+        "workflowId": "wf_demo_hackathon_nvidia",
+        "title": "Query & Discover Top Small Business Workflow Platforms",
+        "description": "Conduct comprehensive web searches for top AI workflow and automation platforms suitable for SMBs in 2026.",
+        "tool": "tavily_search",
+        "dependencies": [],
+        "status": "completed",
+        "input": {
+          "query": "best AI workflow automation platforms for small business 2026 Zapier Make n8n Relay.app Lindy",
+          "maxResults": 6
+        },
+        "output": {
+          "platformsFound": [
+            "Make.com",
+            "Zapier Central",
+            "n8n Cloud",
+            "Relay.app",
+            "Lindy.ai"
+          ],
+          "sourcesCount": 5,
+          "retrievalDate": "2026-10-29"
+        },
+        "startedAt": "2026-10-29T14:16:04.643Z",
+        "completedAt": "2026-10-29T14:17:04.643Z",
+        "retryCount": 0,
+        "maxRetries": 2,
+        "verificationResult": {
+          "verified": true,
+          "score": 98,
+          "criteria": "At least 5 distinct platforms identified with documented URLs and feature sets",
+          "notes": "5 commercial/open-core platforms retrieved with current documentation links.",
+          "checkedAt": "2026-10-29T14:17:04.643Z"
+        }
+      },
+      {
+        "id": "task_2",
+        "workflowId": "wf_demo_hackathon_nvidia",
+        "title": "Extract Technical Specifications & Integrations Matrix",
+        "description": "Analyze API capabilities, native app connectors, webhook support, and AI model orchestration for each platform.",
+        "tool": "tavily_search",
+        "dependencies": [
+          "task_1"
+        ],
+        "status": "completed",
+        "input": {
+          "platforms": [
+            "Make.com",
+            "Zapier Central",
+            "n8n Cloud",
+            "Relay.app",
+            "Lindy.ai"
+          ],
+          "attributes": [
+            "API connectors",
+            "Self-hosting",
+            "AI agent loops",
+            "Human-in-the-loop"
+          ]
+        },
+        "output": {
+          "comparisonMatrix": {
+            "Make.com": {
+              "integrations": "1,500+",
+              "aiLoops": "Advanced Router & OpenAI/Claude/NVIDIA blocks",
+              "humanInLoop": "Yes"
+            },
+            "Zapier Central": {
+              "integrations": "6,000+",
+              "aiLoops": "Autonomous bots + Copilot actions",
+              "humanInLoop": "Yes"
+            },
+            "n8n Cloud": {
+              "integrations": "400+ native / Fair-code open",
+              "aiLoops": "LangChain native nodes + Custom Python/JS",
+              "humanInLoop": "Yes"
+            },
+            "Relay.app": {
+              "integrations": "120+ curated",
+              "aiLoops": "1-click AI approvals + Copilot",
+              "humanInLoop": "Yes"
+            },
+            "Lindy.ai": {
+              "integrations": "200+",
+              "aiLoops": "Autonomous multi-agent task execution",
+              "humanInLoop": "Review inbox"
+            }
+          }
+        },
+        "startedAt": "2026-10-29T14:17:04.643Z",
+        "completedAt": "2026-10-29T14:18:04.643Z",
+        "retryCount": 0,
+        "maxRetries": 2,
+        "verificationResult": {
+          "verified": true,
+          "score": 95,
+          "criteria": "Technical capability matrix populated for all 5 subjects with verification",
+          "notes": "All 5 platforms evaluated across 4 technical axes.",
+          "checkedAt": "2026-10-29T14:18:04.643Z"
+        }
+      },
+      {
+        "id": "task_3",
+        "workflowId": "wf_demo_hackathon_nvidia",
+        "title": "Analyze Pricing Tiers & Cost-Per-Operation Modeling",
+        "description": "Calculate monthly cost curves across 1,000 to 50,000 monthly automated operations.",
+        "tool": "calculator",
+        "dependencies": [
+          "task_2"
+        ],
+        "status": "completed",
+        "input": {
+          "tiers": [
+            {
+              "name": "Make Pro",
+              "baseCost": 9,
+              "opsIncluded": 10000,
+              "extraOpCost": 0.0009
+            },
+            {
+              "name": "Zapier Starter",
+              "baseCost": 19.99,
+              "opsIncluded": 750,
+              "extraOpCost": 0.03
+            },
+            {
+              "name": "n8n Pro Cloud",
+              "baseCost": 20,
+              "opsIncluded": 2500,
+              "extraOpCost": 0.005
+            }
+          ]
+        },
+        "output": {
+          "costCalculations": [
+            {
+              "platform": "Make.com",
+              "costAt10k": "$9.00/mo",
+              "costAt50k": "$45.00/mo",
+              "valueRating": "Superior"
+            },
+            {
+              "platform": "Zapier Central",
+              "costAt10k": "$297.00/mo",
+              "costAt50k": "$1,497.00/mo",
+              "valueRating": "Expensive"
+            },
+            {
+              "platform": "n8n Cloud",
+              "costAt10k": "$57.50/mo",
+              "costAt50k": "$257.50/mo",
+              "valueRating": "High ROI"
+            }
+          ],
+          "cheapestScaleOption": "Make.com for volume; n8n for unlimited self-hosted workloads"
+        },
+        "startedAt": "2026-10-29T14:18:04.643Z",
+        "completedAt": "2026-10-29T14:19:04.643Z",
+        "retryCount": 0,
+        "maxRetries": 1,
+        "verificationResult": {
+          "verified": true,
+          "score": 100,
+          "criteria": "Mathematical verification of cost curves based on published 2026 tier formulas",
+          "notes": "Precision arithmetic verified with unit constraints.",
+          "checkedAt": "2026-10-29T14:19:04.643Z"
+        }
+      },
+      {
+        "id": "task_4",
+        "workflowId": "wf_demo_hackathon_nvidia",
+        "title": "Synthesize Recommendations & Rank Top 3 Candidates",
+        "description": "Weight features, cost, developer ergonomics, and reliability to select and recommend the 3 best tools.",
+        "tool": "verification_engine",
+        "dependencies": [
+          "task_3"
+        ],
+        "status": "completed",
+        "input": {
+          "scoringCriteria": [
+            "Cost Efficiency (30%)",
+            "AI Autonomy (25%)",
+            "Ecosystem (25%)",
+            "Reliability (20%)"
+          ]
+        },
+        "output": {
+          "topThreeRecommendations": [
+            {
+              "rank": 1,
+              "platform": "Make.com",
+              "rationale": "Unbeatable visual debugging, rich branching, and highest ops per dollar."
+            },
+            {
+              "rank": 2,
+              "platform": "n8n Cloud / Self-hosted",
+              "rationale": "Exceptional for developer teams requiring code execution, LangChain agent loops, and data privacy."
+            },
+            {
+              "rank": 3,
+              "platform": "Zapier Central",
+              "rationale": "Largest catalog of 6,000+ connectors and lowest barrier to entry for non-technical teams."
+            }
+          ]
+        },
+        "startedAt": "2026-10-29T14:19:04.643Z",
+        "completedAt": "2026-10-29T14:20:04.643Z",
+        "retryCount": 0,
+        "maxRetries": 2,
+        "verificationResult": {
+          "verified": true,
+          "score": 96,
+          "criteria": "Explicit weighted decision rubric satisfied with sourced pros/cons",
+          "notes": "Ranking verified with weighted multi-factor scoring.",
+          "checkedAt": "2026-10-29T14:20:04.643Z"
+        }
+      },
+      {
+        "id": "task_5",
+        "workflowId": "wf_demo_hackathon_nvidia",
+        "title": "Generate Comprehensive 10-Section Decision Report",
+        "description": "Compile evidence-based decision report with executive summary, methodology, source links, and limitations.",
+        "tool": "document_generator",
+        "dependencies": [
+          "task_4"
+        ],
+        "status": "completed",
+        "input": {
+          "format": "markdown_and_pdf",
+          "includeEvidence": true
+        },
+        "output": {
+          "reportId": "rep_demo_hackathon_nvidia",
+          "sectionsGenerated": 10,
+          "wordCount": 1420
+        },
+        "startedAt": "2026-10-29T14:20:04.643Z",
+        "completedAt": "2026-10-29T14:20:04.643Z",
+        "retryCount": 0,
+        "maxRetries": 1,
+        "verificationResult": {
+          "verified": true,
+          "score": 100,
+          "criteria": "Full report structure complying with hackathon standard",
+          "notes": "Evidence links preserved and cross-verified.",
+          "checkedAt": "2026-10-29T14:20:04.643Z"
+        }
+      }
+    ],
+    "createdAt": "2026-10-29T14:16:04.643Z",
+    "updatedAt": "2026-10-29T14:20:04.643Z",
+    "completedAt": "2026-10-29T14:20:04.643Z",
+    "durationMs": 240000,
+    "reportId": "rep_demo_hackathon_nvidia"
+  },
+  "wf_vs0sted": {
+    "id": "wf_vs0sted",
+    "title": "Automated Pricing Benchmark",
+    "objective": "Evaluate cloud workflow tool unit pricing and generate comparison",
+    "status": "running",
+    "modelUsed": "nvidia/llama-3.1-nemotron-70b-instruct",
+    "approvalRequired": false,
+    "maxTasks": 3,
+    "tasks": [
+      {
+        "id": "task_1",
+        "workflowId": "wf_vs0sted",
+        "title": "Retrieve published pricing tiers",
+        "description": "Fetch pricing for Make and Zapier",
+        "tool": "tavily_search",
+        "dependencies": [],
+        "status": "completed",
+        "input": {
+          "query": "Make and Zapier pricing"
+        },
+        "retryCount": 0,
+        "maxRetries": 2,
+        "requiresApproval": false,
+        "startedAt": "2026-10-29T14:36:41.151Z",
+        "output": {
+          "source": "curated_source_engine",
+          "query": "Make and Zapier pricing",
+          "resultsCount": 5,
+          "retrievalDate": "2026-10-29",
+          "results": [
+            {
+              "title": "Make.com Pricing & Visual Workflow Engine (2026)",
+              "url": "https://make.com/en/pricing",
+              "snippet": "Make Pro plan: $9/month for 10,000 operations. Visual flowchart interface, advanced JSON router, webhook triggers, error handling directives.",
+              "reliability": "verified"
+            },
+            {
+              "title": "n8n Fair-Code Automation & LangChain Nodes",
+              "url": "https://n8n.io/pricing",
+              "snippet": "n8n Cloud starts at $20/month for 2,500 executions. Unlimited self-hosted instances on Docker. Native LangChain AI agent and sub-workflow triggers.",
+              "reliability": "verified"
+            },
+            {
+              "title": "Zapier Central & Multi-Agent Workflows",
+              "url": "https://zapier.com/central",
+              "snippet": "Zapier Starter at $19.99/month for 750 tasks. Access to 6,000+ app connectors, Zapier Central bot copilot, and multi-step logic.",
+              "reliability": "verified"
+            },
+            {
+              "title": "Relay.app Human-in-the-Loop AI Automation",
+              "url": "https://relay.app",
+              "snippet": "Relay offers native 1-click approvals, collaborative review threads in Slack, and AI prompt steps with Google Docs and Notion sync.",
+              "reliability": "primary"
+            },
+            {
+              "title": "Lindy AI Autonomous Employee Agents",
+              "url": "https://lindy.ai",
+              "snippet": "Lindy provides specialized autonomous agents for inbox management, customer triage, and scheduling with 200+ native integrations.",
+              "reliability": "secondary"
+            }
+          ]
+        },
+        "verificationResult": {
+          "verified": true,
+          "score": 96,
+          "criteria": "Return at least 3 verified source URLs and content snippets",
+          "notes": "Successfully validated returned sources and preservation of original URLs.",
+          "checkedAt": "2026-10-29T14:36:41.154Z"
+        },
+        "completedAt": "2026-10-29T14:36:41.154Z"
+      },
+      {
+        "id": "task_2",
+        "workflowId": "wf_vs0sted",
+        "title": "Model volume cost curves",
+        "description": "Calculate cost at 10k and 50k ops",
+        "tool": "calculator",
+        "dependencies": [
+          "task_1"
+        ],
+        "status": "completed",
+        "input": {
+          "tiers": [
+            {
+              "name": "Make",
+              "baseCost": 9,
+              "opsIncluded": 10000,
+              "extraOpCost": 0.0009
+            }
+          ]
+        },
+        "retryCount": 0,
+        "maxRetries": 2,
+        "requiresApproval": false,
+        "startedAt": "2026-10-29T14:36:41.756Z",
+        "output": {
+          "calculations": [
+            {
+              "platform": "Make",
+              "costAt10k": "$9.00/mo",
+              "costAt50k": "$45.00/mo",
+              "efficiencyRatio": "1111 ops/$"
+            }
+          ],
+          "evaluatedAt": "2026-10-29T14:36:41.757Z"
+        },
+        "verificationResult": {
+          "verified": true,
+          "score": 100,
+          "criteria": "Numerical evaluation completed with zero NaN / divide-by-zero errors",
+          "notes": "All arithmetic operations verified.",
+          "checkedAt": "2026-10-29T14:36:41.757Z"
+        },
+        "completedAt": "2026-10-29T14:36:41.757Z"
+      },
+      {
+        "id": "task_3",
+        "workflowId": "wf_vs0sted",
+        "title": "Synthesize Decision Report",
+        "description": "Compile verified findings into executive deliverable",
+        "tool": "document_generator",
+        "dependencies": [
+          "task_2"
+        ],
+        "status": "pending",
+        "input": {
+          "format": "markdown"
+        },
+        "retryCount": 0,
+        "maxRetries": 2,
+        "requiresApproval": false
+      }
+    ],
+    "createdAt": "2026-10-29T14:36:41.149Z",
+    "updatedAt": "2026-10-29T14:36:41.757Z"
+  }
+}

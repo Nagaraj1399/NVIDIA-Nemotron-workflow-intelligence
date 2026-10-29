@@ -1,0 +1,49 @@
+{
+  "totalInferenceRequests": 18,
+  "totalTokensUsed": 38240,
+  "avgLatencyMs": 704,
+  "totalToolsExecuted": 30,
+  "successfulTasks": 28,
+  "failedTasks": 2,
+  "totalWorkflows": 1,
+  "completedWorkflows": 1,
+  "activeModel": "nvidia/llama-3.1-nemotron-70b-instruct",
+  "recentRequests": [
+    {
+      "id": "req_y2diyi",
+      "timestamp": "2026-10-29T14:36:11.400Z",
+      "model": "nvidia/llama-3.1-nemotron-70b-instruct",
+      "tokens": 0,
+      "latencyMs": 6003,
+      "status": "failed",
+      "type": "health_check"
+    },
+    {
+      "id": "req_m26aga",
+      "timestamp": "2026-10-29T14:34:33.875Z",
+      "model": "nvidia/llama-3.1-nemotron-70b-instruct",
+      "tokens": 0,
+      "latencyMs": 347,
+      "status": "failed",
+      "type": "health_check"
+    },
+    {
+      "id": "req_y6y6wc",
+      "timestamp": "2026-10-29T14:34:29.109Z",
+      "model": "nvidia/llama-3.1-nemotron-70b-instruct",
+      "tokens": 0,
+      "latencyMs": 271,
+      "status": "failed",
+      "type": "health_check"
+    },
+    {
+      "id": "req_0cedyv",
+      "timestamp": "2026-10-29T14:34:13.166Z",
+      "model": "nvidia/llama-3.1-nemotron-70b-instruct",
+      "tokens": 0,
+      "latencyMs": 278,
+      "status": "failed",
+      "type": "health_check"
+    }
+  ]
+}

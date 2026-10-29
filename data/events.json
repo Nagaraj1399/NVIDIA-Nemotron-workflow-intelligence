@@ -1,0 +1,100 @@
+[
+  {
+    "workflowId": "wf_demo_hackathon_nvidia",
+    "type": "workflow_created",
+    "message": "Workflow initialized: Competitive Evaluation: AI Workflow Automation Platforms for SMBs",
+    "id": "evt_88h3ioa",
+    "timestamp": "2026-10-29T14:34:04.644Z"
+  },
+  {
+    "workflowId": "wf_demo_hackathon_nvidia",
+    "type": "plan_approved",
+    "message": "Execution plan approved with 5 tasks and DAG dependencies",
+    "id": "evt_m8b9dz6",
+    "timestamp": "2026-10-29T14:34:04.644Z"
+  },
+  {
+    "workflowId": "wf_demo_hackathon_nvidia",
+    "type": "workflow_completed",
+    "message": "All 5 tasks executed and verified successfully. Report generated.",
+    "id": "evt_asqilwz",
+    "timestamp": "2026-10-29T14:34:04.644Z"
+  },
+  {
+    "workflowId": "wf_vs0sted",
+    "type": "workflow_created",
+    "message": "Workflow created: \"Automated Pricing Benchmark\" with 3 tasks",
+    "id": "evt_13o9eyd",
+    "timestamp": "2026-10-29T14:36:41.150Z"
+  },
+  {
+    "workflowId": "wf_vs0sted",
+    "type": "task_started",
+    "message": "Workflow execution started: \"Automated Pricing Benchmark\"",
+    "id": "evt_a8d1zdp",
+    "timestamp": "2026-10-29T14:36:41.150Z"
+  },
+  {
+    "workflowId": "wf_vs0sted",
+    "taskId": "task_1",
+    "type": "task_started",
+    "message": "Starting task: Retrieve published pricing tiers",
+    "id": "evt_07v9yom",
+    "timestamp": "2026-10-29T14:36:41.151Z"
+  },
+  {
+    "workflowId": "wf_vs0sted",
+    "taskId": "task_1",
+    "type": "tool_called",
+    "message": "Calling tool: tavily_search",
+    "metadata": {
+      "input": {
+        "query": "Make and Zapier pricing"
+      }
+    },
+    "id": "evt_cbp8sm4",
+    "timestamp": "2026-10-29T14:36:41.152Z"
+  },
+  {
+    "workflowId": "wf_vs0sted",
+    "taskId": "task_1",
+    "type": "tool_output",
+    "message": "Tool tavily_search completed execution",
+    "metadata": {
+      "outputPreview": [
+        "source",
+        "query",
+        "resultsCount",
+        "retrievalDate",
+        "results"
+      ]
+    },
+    "id": "evt_kuniei2",
+    "timestamp": "2026-10-29T14:36:41.154Z"
+  },
+  {
+    "workflowId": "wf_vs0sted",
+    "taskId": "task_1",
+    "type": "verification_completed",
+    "message": "Task verification: PASS (Score: 96%)",
+    "metadata": {
+      "verification": {
+        "verified": true,
+        "score": 96,
+        "criteria": "Return at least 3 verified source URLs and content snippets",
+        "notes": "Successfully validated returned sources and preservation of original URLs.",
+        "checkedAt": "2026-10-29T14:36:41.154Z"
+      }
+    },
+    "id": "evt_s627ahb",
+    "timestamp": "2026-10-29T14:36:41.154Z"
+  },
+  {
+    "workflowId": "wf_vs0sted",
+    "taskId": "task_1",
+    "type": "task_completed",
+    "message": "Task completed: Retrieve published pricing tiers",
+    "id": "evt_6tdzkqo",
+    "timestamp": "2026-10-29T14:36:41.154Z"
+  }
+]

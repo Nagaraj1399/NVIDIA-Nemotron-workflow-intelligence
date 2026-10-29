@@ -1,0 +1,8 @@
+{
+  "name": "FlowPilot AI",
+  "description": "Autonomous Workflow Intelligence. Turn complex work into observable, verified, intelligent workflows powered by NVIDIA Nemotron & Nebius.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

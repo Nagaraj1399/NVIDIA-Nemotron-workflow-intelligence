@@ -1,0 +1,1240 @@
+# FLOWPILOT AI — PROFESSIONAL PRODUCT BUILD SPECIFICATION
+## Autonomous Workflow Intelligence | Nebius × NVIDIA Global AI Hackathon 2026
+
+You are a principal product engineer, senior AI systems architect, expert React developer, senior UX/UI designer, and hackathon technical lead.
+
+Your mission is to design, build, test, and deploy a complete, production-quality MVP named **FlowPilot AI**.
+
+Do not deliver a mockup, static dashboard, landing page alone, or a collection of disconnected components. Deliver a working application with a professional interface, real AI inference, executable workflows, persistent data, tool integrations, error handling, and deployment instructions.
+
+The result must feel like a polished commercial SaaS product that an engineering team could continue developing.
+
+---
+
+# PART 1 — PRODUCT VISION
+
+## 1.1 Product identity
+
+Product name: FlowPilot AI
+
+Tagline: Turn complex work into intelligent workflows.
+
+Short description: An AI workflow agent that plans tasks, coordinates tools, executes approved actions, verifies results, and creates useful deliverables.
+
+Primary audience:
+- Startup founders.
+- Developers.
+- Product managers.
+- Researchers.
+- Small business teams.
+- Knowledge workers.
+
+Core problem:
+People spend significant time translating complex requests into subtasks, gathering information, using multiple tools, checking results, and preparing reports.
+
+Solution:
+FlowPilot AI accepts a natural-language objective, creates an editable execution plan, coordinates specialized tools, tracks real task execution, verifies outputs, and produces a final deliverable.
+
+Primary product principle:
+**Every workflow should be observable, useful, and verifiable.**
+
+The product must distinguish planning from execution, successful completion from partial completion, and verified evidence from AI-generated assumptions.
+
+## 1.2 Hackathon alignment
+
+Target track: Best Apps and Agents.
+
+Mandatory requirements:
+- Make actual runtime calls to Nebius Token Factory or run the application on Nebius AI Cloud.
+- Use at least one NVIDIA open-source model.
+- Prefer an available NVIDIA Nemotron model suitable for planning and structured output.
+- Show meaningful use of the model in the actual product workflow.
+- Provide a working demo, public source repository, open-source license, README, and public YouTube demo under three minutes.
+
+Do not claim compliance until the relevant integrations have been tested.
+
+---
+
+# PART 2 — MANDATORY TECHNOLOGY STACK
+
+Use this stack unless the existing repository has a compelling technical reason not to.
+
+## Frontend
+- React.
+- TypeScript with strict mode.
+- Vite.
+- Tailwind CSS.
+- Radix UI primitives.
+- Lucide React icons.
+- React Router.
+- TanStack Query for server state.
+- React Hook Form.
+- Zod for frontend validation.
+- A maintained graph visualization library such as React Flow / XYFlow for workflow nodes and edges.
+- Recharts for actual workflow analytics when useful.
+- A maintained Markdown renderer with safe HTML handling.
+
+## Design system
+
+Use Radix UI primitives for accessible:
+- Dialogs.
+- Dropdown menus.
+- Tooltips.
+- Tabs.
+- Popovers.
+- Select menus.
+- Checkboxes.
+- Switches.
+- Toast notifications.
+- Scroll areas.
+- Navigation menus.
+- Accessible modal interactions.
+
+Use shadcn/ui-compatible component patterns where useful, built on Radix primitives. Do not assume that installing Radix automatically provides styled components.
+
+Create reusable application components rather than copying inconsistent styling across pages.
+
+## Backend
+- Python 3.12+.
+- FastAPI.
+- Pydantic.
+- SQLAlchemy.
+- SQLite for the initial MVP.
+- PostgreSQL compatibility for later deployment.
+- HTTPX for outbound API calls.
+- Pytest for backend testing.
+
+## AI
+- Nebius Token Factory inference API.
+- A verified, available NVIDIA Nemotron model.
+- Structured JSON outputs validated through Pydantic.
+- Tool calling or a validated application-controlled tool dispatcher.
+- Server-side API credentials only.
+
+## Deployment
+- Frontend: a suitable static hosting platform.
+- Backend: a Python-compatible application host or Nebius infrastructure.
+- Database: persistent storage.
+- Optional Nebius Serverless Jobs for suitable asynchronous workloads.
+
+Check the current API documentation and actual account access before selecting model identifiers or deployment-specific endpoints.
+
+---
+
+# PART 3 — VISUAL DESIGN SYSTEM
+
+## 3.1 Design direction
+
+Create a premium AI developer-tool interface.
+
+The visual quality should be comparable to well-designed modern SaaS applications, with restrained styling and strong information hierarchy.
+
+Use:
+- A near-black or deep charcoal navigation shell.
+- A light neutral workspace, or a consistent dark workspace if implemented as a complete theme.
+- Indigo and blue as restrained action colors.
+- Muted neutral borders.
+- Clear typography.
+- Generous whitespace.
+- Carefully aligned content.
+- Subtle shadows.
+- Small, consistent corner radii.
+- Clear loading, empty, error, success, and disabled states.
+
+Do not use:
+- Excessive gradients.
+- Neon colors everywhere.
+- Giant decorative hero sections inside the application.
+- Emoji as the primary interface icon system.
+- Randomly rounded cards.
+- Inconsistent font sizes.
+- Fake metrics.
+- Decorative charts with invented data.
+- Glassmorphism on every component.
+- Unnecessary animation.
+
+Use a consistent font such as Inter or Geist, provided it is loaded correctly.
+
+## 3.2 Design tokens
+
+Create centralized tokens for:
+- Backgrounds.
+- Surfaces.
+- Borders.
+- Primary and secondary text.
+- Muted text.
+- Accent colors.
+- Success, warning, danger, and informational states.
+- Spacing.
+- Typography.
+- Radius.
+- Shadows.
+- Focus rings.
+- Motion durations.
+
+Define tokens using CSS custom properties and Tailwind configuration appropriate to the installed version.
+
+Use consistent sizing and spacing across all pages.
+
+## 3.3 Layout dimensions
+
+Desktop application:
+- Left sidebar approximately 248px when expanded.
+- Compact sidebar approximately 72px when collapsed.
+- Top toolbar approximately 64px high.
+- Main content with a comfortable maximum width.
+- Workspace gutters approximately 24–32px.
+- Consistent card padding.
+- Responsive layout for tablets and phones.
+
+Mobile:
+- Collapsible navigation.
+- Stacked workflow panels.
+- Scrollable task details.
+- Touch-friendly controls.
+- No horizontal page overflow.
+- Accessible dialogs and menus.
+
+## 3.4 Component quality
+
+Every component must have:
+- Correct TypeScript types.
+- Accessible names.
+- Keyboard support.
+- Focus-visible states.
+- Consistent spacing.
+- Appropriate responsive behavior.
+- Useful loading and error states.
+
+Avoid the use of `any` unless narrowly justified.
+
+---
+
+# PART 4 — APPLICATION INFORMATION ARCHITECTURE
+
+Implement the following routes.
+
+1. `/` — Marketing and product landing page.
+2. `/app` — Main dashboard.
+3. `/app/workflows/new` — Workflow creation.
+4. `/app/workflows/:id` — Workflow execution workspace.
+5. `/app/history` — Previous workflows.
+6. `/app/reports/:id` — Generated report viewer.
+7. `/app/integrations` — Tool integrations.
+8. `/app/settings` — Preferences and configuration.
+9. `/app/settings/models` — Model status and usage.
+10. `/app/help` — Getting started and troubleshooting.
+
+Use route guards and a consistent application shell where appropriate.
+
+For an MVP, allow a guest/demo mode with clearly identified limitations. If authentication is added, implement actual authentication rather than a decorative sign-in button.
+
+---
+
+# PART 5 — PAGE 1: PROFESSIONAL LANDING PAGE
+
+Create a refined landing page that communicates the product in seconds.
+
+## Header
+- FlowPilot AI logo and wordmark.
+- Product.
+- How it works.
+- Features.
+- Technology.
+- Documentation.
+- Open application button.
+
+## Hero
+Headline:
+"Turn complex work into intelligent workflows."
+
+Supporting text:
+"Describe your goal. FlowPilot plans the work, coordinates your tools, verifies the results, and delivers a report you can trust."
+
+Primary CTA: Open Workspace.
+
+Secondary CTA: Explore a Demo Workflow.
+
+Include a real product preview showing a workflow plan, task statuses, and a report preview.
+
+Do not use a fake interactive demo that claims to execute real tasks.
+
+## Workflow explanation
+Show four stages:
+1. Describe — explain the objective.
+2. Plan — generate an editable task graph.
+3. Execute — coordinate approved tools.
+4. Verify — inspect outputs and create deliverables.
+
+## Feature sections
+- Structured AI planning.
+- Observable execution.
+- Research and data tools.
+- Evidence-linked results.
+- Failure recovery.
+- Downloadable deliverables.
+
+## Technology section
+Explain accurately:
+- NVIDIA Nemotron performs configured AI reasoning.
+- Nebius Token Factory provides model inference.
+- The application backend validates plans and executes approved tools.
+
+Only display provider or integration status based on actual configuration.
+
+## Footer
+Include product links, documentation, repository link when available, privacy information, and appropriate licensing information.
+
+---
+
+# PART 6 — PAGE 2: APPLICATION DASHBOARD
+
+This is the main workspace and should receive the greatest design attention.
+
+## Application shell
+
+### Left sidebar
+
+Include:
+- FlowPilot AI logo.
+- New Workflow button.
+- Overview.
+- Workflow History.
+- Reports.
+- Integrations.
+- Model Usage.
+- Settings.
+- Help and Documentation.
+
+At the bottom, display:
+- Configured model name.
+- Connection status.
+- A compact profile or demo-mode indicator.
+
+Do not claim that a model is connected until a backend health check confirms it.
+
+### Top toolbar
+
+Include:
+- Current page breadcrumb.
+- Search workflows.
+- Keyboard shortcut hint where implemented.
+- Help menu.
+- Notifications where useful.
+- Theme toggle if both themes are implemented.
+
+### Main dashboard header
+
+Title:
+"Your workspace"
+
+Subtitle:
+"Plan, execute, and review your AI workflows."
+
+Actions:
+- New Workflow.
+- View History.
+
+## Dashboard metrics
+
+Show metrics derived from actual stored workflow records:
+- Total workflows.
+- Completed workflows.
+- Workflows requiring attention.
+- Tasks completed.
+
+If there is no data, show zero or an honest empty state.
+
+Do not fabricate activity, token counts, savings, or completion percentages.
+
+## Main dashboard sections
+
+### A. Workflow composer
+
+Create a large, elegant prompt editor with:
+- Multiline input.
+- Example prompts.
+- Input validation.
+- Submit button.
+- Loading indicator.
+- Model readiness indicator.
+- Optional execution preference controls.
+
+Placeholder:
+"What would you like FlowPilot to accomplish?"
+
+Example prompts:
+- Research competitors and produce a sourced comparison.
+- Analyze a CSV and identify trends.
+- Create a product launch plan.
+- Summarize several documents and identify action items.
+
+The composer must submit to the real backend.
+
+### B. Recent workflows
+
+Display:
+- Workflow name.
+- Creation time.
+- Current status.
+- Number of completed tasks.
+- Total tasks.
+- Last update.
+- Open workflow action.
+
+Support filtering and empty states.
+
+### C. Recent reports
+
+Show actual reports with:
+- Report title.
+- Related workflow.
+- Creation date.
+- Download action.
+
+### D. System health
+
+Show independently verified status for:
+- Backend API.
+- Nebius model integration.
+- Database.
+- Research tool, if configured.
+
+Distinguish between:
+- Connected.
+- Not configured.
+- Checking.
+- Degraded.
+- Unavailable.
+
+Never confuse application server health with successful model connectivity.
+
+---
+
+# PART 7 — PAGE 3: CREATE WORKFLOW
+
+Build a focused workflow-creation experience.
+
+## Request editor
+
+Include:
+- Task objective.
+- Optional context.
+- Optional reference URLs.
+- Desired output format.
+- Execution constraints.
+- Optional maximum task count.
+
+Do not ask users to fill unnecessary fields before they can start.
+
+## Workflow templates
+
+Provide templates for:
+- Market Research.
+- Product Planning.
+- Document Analysis.
+- Data Analysis.
+- Engineering Research.
+- General Task Automation.
+
+Each template must populate a real example request.
+
+## Planning options
+
+Support:
+- Fast planning.
+- Detailed planning.
+- Human approval before execution.
+- Maximum number of tasks.
+- Configured model selection, restricted to models actually available to the backend.
+
+Model selection must be validated server-side. Users must not be able to submit arbitrary model names to bypass configuration controls.
+
+## Plan generation
+
+When the user clicks "Generate Plan":
+
+1. Validate the request.
+2. Call the backend.
+3. Use the configured Nebius-hosted NVIDIA model.
+4. Parse and validate the returned plan.
+5. Display actionable validation errors if the output is invalid.
+6. Present the plan for review.
+7. Allow edits before execution.
+
+Do not start expensive or consequential tasks simply because a plan was generated.
+
+## Plan preview
+
+Display:
+- Workflow title.
+- Goal summary.
+- Ordered task list.
+- Dependencies.
+- Expected outputs.
+- Proposed tools.
+- Verification criteria.
+- Risk or approval indicators.
+
+Actions:
+- Edit Plan.
+- Regenerate Plan.
+- Approve and Run.
+- Cancel.
+
+Use accessible dialogs for destructive confirmations.
+
+---
+
+# PART 8 — PAGE 4: WORKFLOW EXECUTION STUDIO
+
+This is the flagship product experience.
+
+Create a professional three-panel desktop layout.
+
+Left panel:
+- Workflow outline.
+- Task tree.
+- Dependency navigation.
+- Current execution status.
+
+Center panel:
+- Visual graph of tasks and dependencies.
+- Zoom and fit controls.
+- Node status indicators.
+- Selected-task highlighting.
+
+Right panel:
+- Selected task details.
+- Tool name.
+- Input summary.
+- Execution status.
+- Output.
+- Error details.
+- Verification results.
+
+On smaller screens, convert panels into tabs or stacked sections.
+
+## Workflow header
+
+Show:
+- Workflow title.
+- Status.
+- Start time.
+- Elapsed duration when available.
+- Task progress.
+- Model name.
+- Actions menu.
+
+Actions:
+- Pause if truly supported.
+- Resume if truly supported.
+- Cancel.
+- Retry failed tasks.
+- Export report.
+
+Do not display controls that do nothing.
+
+## Task graph
+
+Use React Flow / XYFlow or another maintained graph library.
+
+Create node types:
+- Planner.
+- Research.
+- Analysis.
+- Tool Execution.
+- Verification.
+- Report Generation.
+
+A node must display:
+- Title.
+- Short description.
+- State.
+- Relevant icon.
+- Error indicator if failed.
+
+Draw dependency edges from the actual backend plan.
+
+The graph must reflect stored workflow state, not an independent hardcoded example.
+
+## Task status model
+
+Use:
+- Pending.
+- Ready.
+- Running.
+- Completed.
+- Failed.
+- Needs Approval.
+- Cancelled.
+- Skipped.
+
+Define allowed state transitions in the backend.
+
+A task can start only when its dependencies are satisfied.
+
+## Execution timeline
+
+Display timestamped events:
+- Workflow created.
+- Plan approved.
+- Task started.
+- Tool called.
+- Result received.
+- Verification completed.
+- Retry attempted.
+- Workflow completed or failed.
+
+Persist events in the backend.
+
+## Live updates
+
+Use server-sent events or polling.
+
+Implement:
+- Connection status.
+- Reconnection behavior.
+- Duplicate-event protection.
+- Final state refresh.
+- A visible fallback if live updates are unavailable.
+
+Do not simulate successful progress in the absence of backend events.
+
+## Output inspector
+
+Display structured outputs with:
+- Summary.
+- Data preview.
+- Source links.
+- Validation status.
+- Error details.
+- Copy button.
+- Download button where appropriate.
+
+Escape untrusted content and render Markdown safely.
+
+## Workflow completion summary
+
+At the end, show:
+- Final outcome.
+- Tasks completed.
+- Tasks failed.
+- Tasks skipped.
+- Verification status.
+- Report availability.
+- Suggested next steps.
+
+The application must accurately represent partial failures.
+
+---
+
+# PART 9 — PAGE 5: WORKFLOW HISTORY
+
+Build a polished searchable history page.
+
+Features:
+- Search by workflow name.
+- Filter by status.
+- Filter by date.
+- Sort by latest or oldest.
+- Pagination.
+- Open workflow.
+- Open report.
+- Retry eligible failures.
+- Delete workflow with confirmation.
+
+Use real backend data.
+
+Persist deletion and update the UI after the server confirms success.
+
+Display an empty state when no workflows exist.
+
+---
+
+# PART 10 — PAGE 6: REPORT VIEWER
+
+Create a professional report workspace.
+
+Layout:
+- Report title and metadata.
+- Main reading area.
+- Table of contents where appropriate.
+- Evidence and source panel.
+- Download/export actions.
+
+Report structure:
+1. Executive Summary.
+2. Objective.
+3. Methodology.
+4. Key Findings.
+5. Evidence and Sources.
+6. Analysis.
+7. Recommendations.
+8. Verification Results.
+9. Limitations.
+10. Execution Metadata.
+
+Adapt sections to the actual workflow rather than forcing irrelevant sections into every report.
+
+Support:
+- Markdown.
+- Downloadable PDF.
+- Copy report.
+- Source-link opening.
+- Related workflow navigation.
+
+Never invent sources, statistics, citations, or verification results.
+
+For a report generated from research, preserve source URLs and associate claims with their supporting sources whenever possible.
+
+---
+
+# PART 11 — PAGE 7: INTEGRATIONS
+
+Create an integration management page.
+
+Supported integrations:
+- Nebius Token Factory.
+- Tavily web search.
+- Calculator.
+- Document generation.
+- CSV analysis.
+
+Each integration card must show:
+- Purpose.
+- Configuration state.
+- Last successful check.
+- Test Connection button.
+- Setup guidance.
+- Relevant error message.
+
+For integrations that require secrets:
+- Configure credentials on the backend.
+- Do not display the full secret.
+- Never save API keys in local storage.
+- Never include credentials in client-side bundles.
+
+For the Nebius integration, display:
+- Configured endpoint status.
+- Selected model.
+- Last successful inference.
+- Last error, if any.
+- Latency when measured.
+- A model test action.
+
+For Tavily, use its actual API only when configured. If no API key exists, show a clearly labeled setup state and provide a non-network fallback for development that is not misrepresented as live research.
+
+---
+
+# PART 12 — PAGE 8: SETTINGS AND MODEL USAGE
+
+## General settings
+- Theme.
+- Default workflow template.
+- Preferred report format.
+- Default approval policy.
+- Execution limits.
+
+Persist settings using the actual supported backend or account mechanism.
+
+## Model settings
+Display:
+- Provider.
+- Selected model.
+- Model connection status.
+- Available configuration.
+- Test inference button.
+- Recent inference results.
+
+Never expose API keys.
+
+## Usage analytics
+
+Show actual available metrics:
+- Inference requests.
+- Token usage when provided by the API.
+- Average measured latency.
+- Tool execution count.
+- Failed calls.
+- Recent activity.
+
+If the provider does not return a metric, display "Unavailable" rather than guessing.
+
+Use charts only when sufficient real data exists.
+
+---
+
+# PART 13 — AI ORCHESTRATION ARCHITECTURE
+
+The backend must be the source of truth for all execution.
+
+Implement these services:
+
+1. NebiusModelClient.
+2. WorkflowPlanner.
+3. PlanValidator.
+4. ToolRegistry.
+5. WorkflowOrchestrator.
+6. DependencyResolver.
+7. ExecutionEventService.
+8. OutputVerifier.
+9. ReportGenerator.
+10. PersistenceService.
+11. IntegrationHealthService.
+
+Use dependency injection where practical.
+
+## Planning pipeline
+
+User request → input validation → model request → structured response parsing → schema validation → dependency validation → plan preview.
+
+## Execution pipeline
+
+Approved plan → persisted workflow → task scheduling → tool execution → result validation → event recording → dependency resolution → report generation → persisted final state.
+
+Use a state machine rather than scattered status assignments.
+
+## Tool registry
+
+Implement a controlled tool registry.
+
+Each tool must declare:
+- Tool name.
+- Description.
+- Input schema.
+- Output schema.
+- Timeout.
+- Retry policy.
+- Whether external access is required.
+- Whether approval is required.
+
+The model can propose tool calls, but the application backend determines whether the call is valid and authorized.
+
+Never execute arbitrary model-generated shell commands.
+
+Do not allow arbitrary filesystem access, unrestricted URLs, or uncontrolled external side effects.
+
+## Dependency execution
+
+Represent the plan as a directed acyclic graph.
+
+Validate:
+- Unique task IDs.
+- Existing dependency IDs.
+- No dependency cycles.
+- Valid tool names.
+- Bounded task count.
+- Valid input and output structures.
+
+Run independent tasks concurrently only when safe.
+
+Use bounded concurrency and timeouts.
+
+Persist intermediate results so a failed task can be retried without blindly repeating successful work.
+
+---
+
+# PART 14 — NEBIUS TOKEN FACTORY INTEGRATION
+
+Implement a dedicated, testable model client.
+
+Configuration:
+- NEBIUS_API_KEY.
+- NEBIUS_BASE_URL.
+- NEBIUS_MODEL.
+
+Use the official current documentation to determine the actual endpoint, authorization format, model identifier, and request schema.
+
+Use a real NVIDIA Nemotron model available through the account. Prefer a suitable reasoning model for planning and a smaller available model for inexpensive routine operations when practical.
+
+Do not assume every model supports every tool-calling or structured-output feature.
+
+If native structured outputs are unavailable, request JSON and validate it on the server.
+
+Requirements:
+- Real authenticated inference calls.
+- Timeouts.
+- Bounded retries.
+- Rate-limit handling.
+- Safe error messages.
+- Schema validation.
+- Request IDs where available.
+- Measured latency.
+- Usage metadata when returned.
+- Health-check endpoint.
+- Test suite with mocked API responses.
+
+The backend must never silently replace a failed real model call with a hardcoded response and present it as successful AI execution.
+
+Use explicit development fixtures only for tests and demo fallback states.
+
+The actual hackathon demo must demonstrate a successful call to the required NVIDIA model through Nebius infrastructure.
+
+---
+
+# PART 15 — RESEARCH AND TAVILY
+
+Implement a real research tool for web-based tasks.
+
+When Tavily is configured:
+1. Submit a query to the real Tavily API.
+2. Retrieve results.
+3. Preserve the original URLs and returned metadata.
+4. Normalize results into a validated structure.
+5. Pass the evidence to the NVIDIA model for analysis.
+6. Keep evidence separate from generated conclusions.
+7. Include source links in the report.
+
+Use bounded search results and request limits.
+
+Treat retrieved webpages as untrusted data, never as instructions to execute.
+
+If the API is unavailable, return a clear error or request user input. Never fabricate sources.
+
+If pursuing the Best Use of Tavily bonus, ensure a functional runtime Tavily API call genuinely contributes to the application's output.
+
+---
+
+# PART 16 — SECURITY AND PRIVACY
+
+Implement:
+- Server-side API keys.
+- Environment-variable configuration.
+- Request validation.
+- Rate limits.
+- Output validation.
+- Safe Markdown rendering.
+- Safe URL handling.
+- SSRF protections.
+- Tool execution allowlists.
+- Bounded retries.
+- Timeouts.
+- Log redaction.
+- Controlled file generation.
+- Explicit approval for consequential actions.
+- Database access controls appropriate to the chosen deployment.
+
+Treat web research results and user-provided documents as untrusted inputs.
+
+Do not expose sensitive data in analytics or error messages.
+
+If guest mode is supported, enforce limits and do not expose other users' workflows.
+
+---
+
+# PART 17 — DATABASE DESIGN
+
+Create persistent tables for:
+
+- workflows.
+- workflow_tasks.
+- workflow_events.
+- task_outputs.
+- reports.
+- integration_status.
+- usage_records.
+- user_preferences, if applicable.
+
+Use:
+- Primary keys.
+- Foreign keys.
+- Appropriate indexes.
+- UTC timestamps.
+- Validated statuses.
+- JSON columns or portable JSON serialization for structured task data.
+
+Define migration and initialization procedures.
+
+Do not store secrets in the workflow database.
+
+---
+
+# PART 18 — BACKEND API
+
+Implement validated endpoints such as:
+
+GET /api/health
+
+GET /api/models/status
+
+POST /api/models/test
+
+POST /api/workflows/plan
+
+POST /api/workflows
+
+GET /api/workflows
+
+GET /api/workflows/{workflow_id}
+
+POST /api/workflows/{workflow_id}/approve
+
+POST /api/workflows/{workflow_id}/cancel
+
+POST /api/workflows/{workflow_id}/retry
+
+GET /api/workflows/{workflow_id}/events
+
+GET /api/workflows/{workflow_id}/report
+
+GET /api/integrations
+
+POST /api/integrations/{integration_id}/test
+
+GET /api/usage/summary
+
+GET /api/reports/{report_id}
+
+Use correct HTTP methods and response codes.
+
+Use consistent error responses with machine-readable error codes and human-readable messages.
+
+Configure CORS for the actual deployed frontend origin.
+
+Document the API using FastAPI's OpenAPI interface.
+
+---
+
+# PART 19 — DEMONSTRATION WORKFLOW
+
+Create one excellent, fully working default demonstration.
+
+User request:
+
+"Research five AI workflow automation platforms suitable for small businesses. Compare documented features, integrations, pricing where available, strengths, limitations, and suitability. Recommend the three best options and produce an evidence-based decision report."
+
+The demo must:
+1. Call the actual Nebius-hosted NVIDIA model to generate a task plan.
+2. Display the plan for user approval.
+3. Execute actual research calls through the configured search integration.
+4. Store returned evidence and URLs.
+5. Summarize and compare the collected evidence.
+6. Validate the resulting structured comparison.
+7. Generate the report.
+8. Display the actual task timeline and tool outputs.
+9. Save the report and workflow.
+10. Allow the user to download the report.
+
+Do not hardcode the final comparison.
+
+If a tool fails, show the failure and explain its impact on the final report.
+
+Do not present pricing as current unless the source supports it and the retrieval date is recorded.
+
+---
+
+# PART 20 — TESTING AND ACCEPTANCE CRITERIA
+
+Write automated tests for:
+- Model-client request construction.
+- Model API errors.
+- Plan parsing.
+- Dependency-cycle detection.
+- Tool argument validation.
+- Execution order.
+- Independent task concurrency.
+- Retry limits.
+- Cancellation.
+- Partial failures.
+- Event persistence.
+- Report generation.
+- API error responses.
+- Data persistence.
+
+Frontend checks:
+- All routes render.
+- Forms validate.
+- Loading states work.
+- Dialogs are accessible.
+- Workflow status updates.
+- Empty states are correct.
+- The app is responsive.
+- No important buttons are inert.
+
+Integration checks:
+- Backend starts.
+- Database initializes.
+- Health check works.
+- Real model inference succeeds with configured credentials.
+- A real workflow executes.
+- A report is generated.
+- Workflow history survives a page refresh.
+
+Run the tests and fix critical errors before claiming completion.
+
+Report which tests actually passed and which remain untested.
+
+---
+
+# PART 21 — REPOSITORY STRUCTURE
+
+Use a maintainable structure similar to:
+
+flowpilot-ai/
+  frontend/
+    src/
+      app/
+      components/
+        ui/
+        layout/
+        workflows/
+        reports/
+        integrations/
+      pages/
+      hooks/
+      services/
+      schemas/
+      types/
+      styles/
+    public/
+    package.json
+  backend/
+    app/
+      api/
+      core/
+      models/
+      schemas/
+      services/
+      tools/
+      orchestration/
+      persistence/
+      main.py
+    tests/
+    requirements.txt
+  docs/
+    architecture.md
+    demo-script.md
+  .env.example
+  .gitignore
+  LICENSE
+  README.md
+
+Adjust the structure if necessary, but keep the boundaries clear and avoid a monolithic application file.
+
+---
+
+# PART 22 — DEPLOYMENT
+
+Prepare a reliable deployment with persistent storage.
+
+Document:
+- Local development.
+- Environment variables.
+- Frontend build.
+- Backend startup.
+- Database initialization.
+- Production configuration.
+- API origin configuration.
+- Health-check validation.
+- Model integration verification.
+- Troubleshooting.
+
+If using Nebius AI Cloud, explain the actual compute or serverless deployment used.
+
+If the application only calls Token Factory from another host, describe that accurately. Do not claim the entire application is hosted on Nebius AI Cloud unless it actually is.
+
+Before marking deployment complete:
+- Open the deployed frontend.
+- Test the deployed backend.
+- Verify the model integration.
+- Execute the demonstration workflow.
+- Check that the report downloads.
+- Check that stored history persists.
+- Verify that no secrets appear in public source code.
+
+Do not invent a live URL or repository URL.
+
+---
+
+# PART 23 — HACKATHON SUBMISSION ASSETS
+
+Prepare the following after the application works.
+
+## Project title
+FlowPilot AI — Turn Complex Work into Intelligent Workflows
+
+## Track
+Best Apps and Agents.
+
+## Submission description
+Write a clear English description that explains:
+- The problem.
+- The target audience.
+- The solution.
+- How the workflow engine works.
+- The NVIDIA model's actual role.
+- The Nebius Token Factory integration.
+- The real tool execution.
+- The verification and reporting approach.
+- The limitations.
+
+## Demo video
+Create a maximum three-minute script.
+
+Suggested sequence:
+- 0:00–0:20 — Explain the problem.
+- 0:20–0:40 — Enter the research request.
+- 0:40–1:00 — Generate and approve the plan.
+- 1:00–1:40 — Show real task execution, research, and logs.
+- 1:40–2:10 — Show evidence-backed findings and verification.
+- 2:10–2:35 — Open and download the final report.
+- 2:35–2:55 — Explain the NVIDIA Nemotron and Nebius architecture.
+
+Use actual recorded application behavior. Do not use simulated AI calls or fabricated metrics.
+
+## README
+Include:
+- Product overview.
+- Screenshots.
+- Architecture diagram.
+- Technology stack.
+- Nebius model setup.
+- Tool configuration.
+- Installation.
+- Development commands.
+- Tests.
+- Deployment.
+- Security.
+- Limitations.
+- Hackathon track.
+- License.
+
+## Feedback
+Prepare a short feedback template for actual observations about Nebius Token Factory, model behavior, documentation, latency, and developer experience. Do not invent results.
+
+---
+
+# PART 24 — FINAL DEVELOPMENT INSTRUCTIONS
+
+Work in small, verifiable stages.
+
+Stage 1: Inspect the repository, install dependencies, and establish the application skeleton.
+
+Stage 2: Configure Nebius and verify a real NVIDIA model inference call.
+
+Stage 3: Implement the planner, plan validator, tool registry, and persistent workflow engine.
+
+Stage 4: Implement the execution studio, graph visualization, timeline, and task inspector.
+
+Stage 5: Implement research integration, evidence storage, verification, and report generation.
+
+Stage 6: Complete history, settings, integrations, and dashboard analytics.
+
+Stage 7: Test the complete workflow and fix all blocking errors.
+
+Stage 8: Deploy, verify, and prepare the submission materials.
+
+Do not stop after describing the architecture.
+
+Do not output only code snippets.
+
+Modify the actual project files, run the available tools, and implement the application end to end.
+
+If a required credential is missing, continue building the application and provide a clear setup screen. Never pretend that an external integration works without testing it.
+
+Prioritize a coherent, complete product over a long list of superficial features.
+
+At the end, report the real implementation status, actual test results, required credentials, verified URLs, and outstanding limitations.
+
+**Begin by inspecting the current project and then build the application.**
