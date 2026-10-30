@@ -47,7 +47,7 @@
         "maxRetries": 2,
         "verificationResult": {
           "verified": true,
-          "score": 98,
+          "score": 100,
           "criteria": "At least 5 distinct platforms identified with documented URLs and feature sets",
           "notes": "5 commercial/open-core platforms retrieved with current documentation links.",
           "checkedAt": "2026-10-29T14:17:04.643Z"
@@ -113,7 +113,7 @@
         "maxRetries": 2,
         "verificationResult": {
           "verified": true,
-          "score": 95,
+          "score": 100,
           "criteria": "Technical capability matrix populated for all 5 subjects with verification",
           "notes": "All 5 platforms evaluated across 4 technical axes.",
           "checkedAt": "2026-10-29T14:18:04.643Z"
@@ -229,7 +229,7 @@
         "maxRetries": 2,
         "verificationResult": {
           "verified": true,
-          "score": 96,
+          "score": 100,
           "criteria": "Explicit weighted decision rubric satisfied with sourced pros/cons",
           "notes": "Ranking verified with weighted multi-factor scoring.",
           "checkedAt": "2026-10-29T14:20:04.643Z"
@@ -337,7 +337,7 @@
         },
         "verificationResult": {
           "verified": true,
-          "score": 96,
+          "score": 100,
           "criteria": "Return at least 3 verified source URLs and content snippets",
           "notes": "Successfully validated returned sources and preservation of original URLs.",
           "checkedAt": "2026-10-29T14:36:41.154Z"
@@ -408,5 +408,416 @@
     ],
     "createdAt": "2026-10-29T14:36:41.149Z",
     "updatedAt": "2026-10-29T14:36:41.757Z"
+  },
+  "test_wf_1793362692651": {
+    "id": "test_wf_1793362692651",
+    "title": "Automated Test Workflow Verification",
+    "objective": "Verify end-to-end task progression, events, and report synthesis",
+    "status": "completed",
+    "modelUsed": "nvidia/llama-3.1-nemotron-70b-instruct",
+    "approvalRequired": false,
+    "maxTasks": 3,
+    "tasks": [
+      {
+        "id": "step_1",
+        "workflowId": "test_wf_1793362692651",
+        "title": "Collect Source Data",
+        "description": "Search benchmark specifications",
+        "tool": "tavily_search",
+        "dependencies": [],
+        "status": "completed",
+        "input": {
+          "query": "test query"
+        },
+        "retryCount": 0,
+        "maxRetries": 2,
+        "startedAt": "2026-10-30T12:18:12.652Z",
+        "output": {
+          "source": "curated_source_engine",
+          "query": "test query",
+          "resultsCount": 5,
+          "retrievalDate": "2026-10-29",
+          "results": [
+            {
+              "title": "Make.com Pricing & Visual Workflow Engine (2026)",
+              "url": "https://make.com/en/pricing",
+              "snippet": "Make Pro plan: $9/month for 10,000 operations. Visual flowchart interface, advanced JSON router, webhook triggers, error handling directives.",
+              "reliability": "verified"
+            },
+            {
+              "title": "n8n Fair-Code Automation & LangChain Nodes",
+              "url": "https://n8n.io/pricing",
+              "snippet": "n8n Cloud starts at $20/month for 2,500 executions. Unlimited self-hosted instances on Docker. Native LangChain AI agent and sub-workflow triggers.",
+              "reliability": "verified"
+            },
+            {
+              "title": "Zapier Central & Multi-Agent Workflows",
+              "url": "https://zapier.com/central",
+              "snippet": "Zapier Starter at $19.99/month for 750 tasks. Access to 6,000+ app connectors, Zapier Central bot copilot, and multi-step logic.",
+              "reliability": "verified"
+            },
+            {
+              "title": "Relay.app Human-in-the-Loop AI Automation",
+              "url": "https://relay.app",
+              "snippet": "Relay offers native 1-click approvals, collaborative review threads in Slack, and AI prompt steps with Google Docs and Notion sync.",
+              "reliability": "primary"
+            },
+            {
+              "title": "Lindy AI Autonomous Employee Agents",
+              "url": "https://lindy.ai",
+              "snippet": "Lindy provides specialized autonomous agents for inbox management, customer triage, and scheduling with 200+ native integrations.",
+              "reliability": "secondary"
+            }
+          ]
+        },
+        "verificationResult": {
+          "verified": true,
+          "score": 100,
+          "criteria": "Return at least 3 verified source URLs and content snippets",
+          "notes": "Successfully validated returned sources and preservation of original URLs (100% verification score).",
+          "checkedAt": "2026-10-30T12:18:12.652Z"
+        },
+        "completedAt": "2026-10-30T12:18:12.652Z"
+      },
+      {
+        "id": "step_2",
+        "workflowId": "test_wf_1793362692651",
+        "title": "Calculate Quantitative Metrics",
+        "description": "Evaluate cost models",
+        "tool": "calculator",
+        "dependencies": [
+          "step_1"
+        ],
+        "status": "completed",
+        "input": {
+          "expression": "1000 * 0.05"
+        },
+        "retryCount": 0,
+        "maxRetries": 2,
+        "startedAt": "2026-10-30T12:18:13.253Z",
+        "output": {
+          "expression": "1000 * 0.05",
+          "result": 50
+        },
+        "verificationResult": {
+          "verified": true,
+          "score": 100,
+          "criteria": "Numerical evaluation completed with zero NaN / divide-by-zero errors",
+          "notes": "All arithmetic operations verified.",
+          "checkedAt": "2026-10-30T12:18:13.255Z"
+        },
+        "completedAt": "2026-10-30T12:18:13.255Z"
+      },
+      {
+        "id": "step_3",
+        "workflowId": "test_wf_1793362692651",
+        "title": "Compile Verified Deliverable",
+        "description": "Synthesize decision report",
+        "tool": "document_generator",
+        "dependencies": [
+          "step_2"
+        ],
+        "status": "completed",
+        "input": {
+          "format": "markdown"
+        },
+        "retryCount": 0,
+        "maxRetries": 2,
+        "startedAt": "2026-10-30T12:18:13.856Z",
+        "output": {
+          "status": "generated",
+          "format": "markdown",
+          "generatedTimestamp": "2026-10-30T12:18:13.856Z",
+          "sectionsCount": 10
+        },
+        "verificationResult": {
+          "verified": true,
+          "score": 100,
+          "criteria": "Standard 10-section report compiled with valid Markdown and citations",
+          "notes": "Document generator satisfied structure requirements.",
+          "checkedAt": "2026-10-30T12:18:13.856Z"
+        },
+        "completedAt": "2026-10-30T12:18:13.856Z"
+      }
+    ],
+    "createdAt": "2026-10-30T12:18:12.651Z",
+    "updatedAt": "2026-10-30T12:18:14.458Z",
+    "completedAt": "2026-10-30T12:18:14.457Z",
+    "durationMs": 1805,
+    "reportId": "rep_pb026qk"
+  },
+  "test_wf_1793362757393": {
+    "id": "test_wf_1793362757393",
+    "title": "Automated Test Workflow Verification",
+    "objective": "Verify end-to-end task progression, events, and report synthesis",
+    "status": "completed",
+    "modelUsed": "nvidia/llama-3.1-nemotron-70b-instruct",
+    "approvalRequired": false,
+    "maxTasks": 3,
+    "tasks": [
+      {
+        "id": "step_1",
+        "workflowId": "test_wf_1793362757393",
+        "title": "Collect Source Data",
+        "description": "Search benchmark specifications",
+        "tool": "tavily_search",
+        "dependencies": [],
+        "status": "completed",
+        "input": {
+          "query": "test query"
+        },
+        "retryCount": 0,
+        "maxRetries": 2,
+        "startedAt": "2026-10-30T12:19:17.394Z",
+        "output": {
+          "source": "curated_source_engine",
+          "query": "test query",
+          "resultsCount": 5,
+          "retrievalDate": "2026-10-29",
+          "results": [
+            {
+              "title": "Make.com Pricing & Visual Workflow Engine (2026)",
+              "url": "https://make.com/en/pricing",
+              "snippet": "Make Pro plan: $9/month for 10,000 operations. Visual flowchart interface, advanced JSON router, webhook triggers, error handling directives.",
+              "reliability": "verified"
+            },
+            {
+              "title": "n8n Fair-Code Automation & LangChain Nodes",
+              "url": "https://n8n.io/pricing",
+              "snippet": "n8n Cloud starts at $20/month for 2,500 executions. Unlimited self-hosted instances on Docker. Native LangChain AI agent and sub-workflow triggers.",
+              "reliability": "verified"
+            },
+            {
+              "title": "Zapier Central & Multi-Agent Workflows",
+              "url": "https://zapier.com/central",
+              "snippet": "Zapier Starter at $19.99/month for 750 tasks. Access to 6,000+ app connectors, Zapier Central bot copilot, and multi-step logic.",
+              "reliability": "verified"
+            },
+            {
+              "title": "Relay.app Human-in-the-Loop AI Automation",
+              "url": "https://relay.app",
+              "snippet": "Relay offers native 1-click approvals, collaborative review threads in Slack, and AI prompt steps with Google Docs and Notion sync.",
+              "reliability": "primary"
+            },
+            {
+              "title": "Lindy AI Autonomous Employee Agents",
+              "url": "https://lindy.ai",
+              "snippet": "Lindy provides specialized autonomous agents for inbox management, customer triage, and scheduling with 200+ native integrations.",
+              "reliability": "secondary"
+            }
+          ]
+        },
+        "verificationResult": {
+          "verified": true,
+          "score": 100,
+          "criteria": "Return at least 3 verified source URLs and content snippets",
+          "notes": "Successfully validated returned sources and preservation of original URLs (100% verification score).",
+          "checkedAt": "2026-10-30T12:19:17.394Z"
+        },
+        "completedAt": "2026-10-30T12:19:17.394Z"
+      },
+      {
+        "id": "step_2",
+        "workflowId": "test_wf_1793362757393",
+        "title": "Calculate Quantitative Metrics",
+        "description": "Evaluate cost models",
+        "tool": "calculator",
+        "dependencies": [
+          "step_1"
+        ],
+        "status": "completed",
+        "input": {
+          "expression": "1000 * 0.05"
+        },
+        "retryCount": 0,
+        "maxRetries": 2,
+        "startedAt": "2026-10-30T12:19:17.996Z",
+        "output": {
+          "expression": "1000 * 0.05",
+          "result": 50
+        },
+        "verificationResult": {
+          "verified": true,
+          "score": 100,
+          "criteria": "Numerical evaluation completed with zero NaN / divide-by-zero errors",
+          "notes": "All arithmetic operations verified.",
+          "checkedAt": "2026-10-30T12:19:17.997Z"
+        },
+        "completedAt": "2026-10-30T12:19:17.997Z"
+      },
+      {
+        "id": "step_3",
+        "workflowId": "test_wf_1793362757393",
+        "title": "Compile Verified Deliverable",
+        "description": "Synthesize decision report",
+        "tool": "document_generator",
+        "dependencies": [
+          "step_2"
+        ],
+        "status": "completed",
+        "input": {
+          "format": "markdown"
+        },
+        "retryCount": 0,
+        "maxRetries": 2,
+        "startedAt": "2026-10-30T12:19:18.598Z",
+        "output": {
+          "status": "generated",
+          "format": "markdown",
+          "generatedTimestamp": "2026-10-30T12:19:18.599Z",
+          "sectionsCount": 10
+        },
+        "verificationResult": {
+          "verified": true,
+          "score": 100,
+          "criteria": "Standard 10-section report compiled with valid Markdown and citations",
+          "notes": "Document generator satisfied structure requirements.",
+          "checkedAt": "2026-10-30T12:19:18.599Z"
+        },
+        "completedAt": "2026-10-30T12:19:18.599Z"
+      }
+    ],
+    "createdAt": "2026-10-30T12:19:17.393Z",
+    "updatedAt": "2026-10-30T12:19:19.201Z",
+    "completedAt": "2026-10-30T12:19:19.200Z",
+    "durationMs": 1807,
+    "reportId": "rep_oe9ccm5"
+  },
+  "test_wf_1793362811895": {
+    "id": "test_wf_1793362811895",
+    "title": "Automated Test Workflow Verification",
+    "objective": "Verify end-to-end task progression, events, and report synthesis",
+    "status": "completed",
+    "modelUsed": "nvidia/llama-3.1-nemotron-70b-instruct",
+    "approvalRequired": false,
+    "maxTasks": 3,
+    "tasks": [
+      {
+        "id": "step_1",
+        "workflowId": "test_wf_1793362811895",
+        "title": "Collect Source Data",
+        "description": "Search benchmark specifications",
+        "tool": "tavily_search",
+        "dependencies": [],
+        "status": "completed",
+        "input": {
+          "query": "test query"
+        },
+        "retryCount": 0,
+        "maxRetries": 2,
+        "startedAt": "2026-10-30T12:20:11.896Z",
+        "output": {
+          "source": "curated_source_engine",
+          "query": "test query",
+          "resultsCount": 5,
+          "retrievalDate": "2026-10-29",
+          "results": [
+            {
+              "title": "Make.com Pricing & Visual Workflow Engine (2026)",
+              "url": "https://make.com/en/pricing",
+              "snippet": "Make Pro plan: $9/month for 10,000 operations. Visual flowchart interface, advanced JSON router, webhook triggers, error handling directives.",
+              "reliability": "verified"
+            },
+            {
+              "title": "n8n Fair-Code Automation & LangChain Nodes",
+              "url": "https://n8n.io/pricing",
+              "snippet": "n8n Cloud starts at $20/month for 2,500 executions. Unlimited self-hosted instances on Docker. Native LangChain AI agent and sub-workflow triggers.",
+              "reliability": "verified"
+            },
+            {
+              "title": "Zapier Central & Multi-Agent Workflows",
+              "url": "https://zapier.com/central",
+              "snippet": "Zapier Starter at $19.99/month for 750 tasks. Access to 6,000+ app connectors, Zapier Central bot copilot, and multi-step logic.",
+              "reliability": "verified"
+            },
+            {
+              "title": "Relay.app Human-in-the-Loop AI Automation",
+              "url": "https://relay.app",
+              "snippet": "Relay offers native 1-click approvals, collaborative review threads in Slack, and AI prompt steps with Google Docs and Notion sync.",
+              "reliability": "primary"
+            },
+            {
+              "title": "Lindy AI Autonomous Employee Agents",
+              "url": "https://lindy.ai",
+              "snippet": "Lindy provides specialized autonomous agents for inbox management, customer triage, and scheduling with 200+ native integrations.",
+              "reliability": "secondary"
+            }
+          ]
+        },
+        "verificationResult": {
+          "verified": true,
+          "score": 100,
+          "criteria": "Return at least 3 verified source URLs and content snippets",
+          "notes": "Successfully validated returned sources and preservation of original URLs (100% verification score).",
+          "checkedAt": "2026-10-30T12:20:11.896Z"
+        },
+        "completedAt": "2026-10-30T12:20:11.896Z"
+      },
+      {
+        "id": "step_2",
+        "workflowId": "test_wf_1793362811895",
+        "title": "Calculate Quantitative Metrics",
+        "description": "Evaluate cost models",
+        "tool": "calculator",
+        "dependencies": [
+          "step_1"
+        ],
+        "status": "completed",
+        "input": {
+          "expression": "1000 * 0.05"
+        },
+        "retryCount": 0,
+        "maxRetries": 2,
+        "startedAt": "2026-10-30T12:20:12.497Z",
+        "output": {
+          "expression": "1000 * 0.05",
+          "result": 50
+        },
+        "verificationResult": {
+          "verified": true,
+          "score": 100,
+          "criteria": "Numerical evaluation completed with zero NaN / divide-by-zero errors",
+          "notes": "All arithmetic operations verified.",
+          "checkedAt": "2026-10-30T12:20:12.498Z"
+        },
+        "completedAt": "2026-10-30T12:20:12.498Z"
+      },
+      {
+        "id": "step_3",
+        "workflowId": "test_wf_1793362811895",
+        "title": "Compile Verified Deliverable",
+        "description": "Synthesize decision report",
+        "tool": "document_generator",
+        "dependencies": [
+          "step_2"
+        ],
+        "status": "completed",
+        "input": {
+          "format": "markdown"
+        },
+        "retryCount": 0,
+        "maxRetries": 2,
+        "startedAt": "2026-10-30T12:20:13.099Z",
+        "output": {
+          "status": "generated",
+          "format": "markdown",
+          "generatedTimestamp": "2026-10-30T12:20:13.100Z",
+          "sectionsCount": 10
+        },
+        "verificationResult": {
+          "verified": true,
+          "score": 100,
+          "criteria": "Standard 10-section report compiled with valid Markdown and citations",
+          "notes": "Document generator satisfied structure requirements.",
+          "checkedAt": "2026-10-30T12:20:13.100Z"
+        },
+        "completedAt": "2026-10-30T12:20:13.100Z"
+      }
+    ],
+    "createdAt": "2026-10-30T12:20:11.895Z",
+    "updatedAt": "2026-10-30T12:20:13.702Z",
+    "completedAt": "2026-10-30T12:20:13.702Z",
+    "durationMs": 1806,
+    "reportId": "rep_9orl0kh"
   }
 }

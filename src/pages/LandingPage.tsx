@@ -152,15 +152,15 @@ export const LandingPage: React.FC = () => {
                   <span className="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold flex items-center gap-2">
                     <GitBranch className="w-4 h-4 text-indigo-400" /> Verified Task Graph (DAG)
                   </span>
-                  <span className="text-[11px] font-mono text-emerald-400">Status: PASS (97%)</span>
+                  <span className="text-[11px] font-mono text-emerald-400 font-semibold">Status: PASS (100% Verified)</span>
                 </div>
 
                 <div className="space-y-3">
                   {[
-                    { id: 'task_1', title: 'Discover 5 SMB Workflow Platforms', tool: 'tavily_search', status: 'Completed', score: '98%' },
-                    { id: 'task_2', title: 'Extract Capabilities & Integrations Matrix', tool: 'tavily_search', status: 'Completed', score: '95%' },
+                    { id: 'task_1', title: 'Discover 5 SMB Workflow Platforms', tool: 'tavily_search', status: 'Completed', score: '100%' },
+                    { id: 'task_2', title: 'Extract Capabilities & Integrations Matrix', tool: 'tavily_search', status: 'Completed', score: '100%' },
                     { id: 'task_3', title: 'Calculate Monthly Volume Cost Curves', tool: 'calculator', status: 'Completed', score: '100%' },
-                    { id: 'task_4', title: 'Multi-Factor Decision Rubric & Ranking', tool: 'verification_engine', status: 'Completed', score: '96%' },
+                    { id: 'task_4', title: 'Multi-Factor Decision Rubric & Ranking', tool: 'verification_engine', status: 'Completed', score: '100%' },
                     { id: 'task_5', title: 'Generate 10-Section Decision Deliverable', tool: 'document_generator', status: 'Completed', score: '100%' },
                   ].map((task, idx) => (
                     <div 

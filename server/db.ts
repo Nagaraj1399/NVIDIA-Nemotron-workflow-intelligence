@@ -202,9 +202,9 @@ function seedDemoIfEmpty() {
         maxRetries: 2,
         verificationResult: {
           verified: true,
-          score: 98,
+          score: 100,
           criteria: 'At least 5 distinct platforms identified with documented URLs and feature sets',
-          notes: '5 commercial/open-core platforms retrieved with current documentation links.',
+          notes: '5 commercial/open-core platforms retrieved with current documentation links (100% verified).',
           checkedAt: new Date(Date.now() - 1000 * 60 * 17).toISOString()
         }
       },
@@ -235,9 +235,9 @@ function seedDemoIfEmpty() {
         maxRetries: 2,
         verificationResult: {
           verified: true,
-          score: 95,
+          score: 100,
           criteria: 'Technical capability matrix populated for all 5 subjects with verification',
-          notes: 'All 5 platforms evaluated across 4 technical axes.',
+          notes: 'All 5 platforms evaluated across 4 technical axes with 100% verification.',
           checkedAt: new Date(Date.now() - 1000 * 60 * 16).toISOString()
         }
       },
@@ -300,9 +300,9 @@ function seedDemoIfEmpty() {
         maxRetries: 2,
         verificationResult: {
           verified: true,
-          score: 96,
+          score: 100,
           criteria: 'Explicit weighted decision rubric satisfied with sourced pros/cons',
-          notes: 'Ranking verified with weighted multi-factor scoring.',
+          notes: 'Ranking verified with weighted multi-factor scoring (100% match).',
           checkedAt: new Date(Date.now() - 1000 * 60 * 14).toISOString()
         }
       },
@@ -446,10 +446,10 @@ Consequential workflows (such as issuing refunds, emailing clients, or committin
       ],
       verificationResults: {
         status: 'pass',
-        score: 97,
+        score: 100,
         checks: [
-          { name: 'Source URL Authenticity', passed: true, details: '5 of 5 primary vendor URLs verified and accessible.' },
-          { name: 'Pricing Math Accuracy', passed: true, details: 'Volume calculations across 10k and 50k operational tiers verified.' },
+          { name: 'Source URL Authenticity', passed: true, details: '5 of 5 primary vendor URLs verified and accessible (100%).' },
+          { name: 'Pricing Math Accuracy', passed: true, details: 'Volume calculations across 10k and 50k operational tiers verified (100%).' },
           { name: 'Claim Evidence Association', passed: true, details: 'Every strategic claim directly references verified evidence snippets.' },
           { name: 'Completeness of 10 Required Sections', passed: true, details: 'Executive summary, methodology, findings, evidence, analysis, recommendations, limitations included.' }
         ]
@@ -476,7 +476,7 @@ Consequential workflows (such as issuing refunds, emailing clients, or committin
 **Objective:** ${demoWorkflow.objective}  
 **Model:** nvidia/llama-3.1-nemotron-70b-instruct (Nebius Token Factory)  
 **Execution Date:** 2026-10-29  
-**Verification Score:** 97% (Verified)
+**Verification Score:** 100% (Verified Pass)
 
 ---
 

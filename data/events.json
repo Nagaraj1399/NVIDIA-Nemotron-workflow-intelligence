@@ -96,5 +96,602 @@
     "message": "Task completed: Retrieve published pricing tiers",
     "id": "evt_6tdzkqo",
     "timestamp": "2026-10-29T14:36:41.154Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "type": "task_started",
+    "message": "Workflow execution started: \"Automated Test Workflow Verification\"",
+    "id": "evt_s11peg6",
+    "timestamp": "2026-10-30T12:18:12.651Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_1",
+    "type": "task_started",
+    "message": "Starting task: Collect Source Data",
+    "id": "evt_44z81by",
+    "timestamp": "2026-10-30T12:18:12.652Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_1",
+    "type": "tool_called",
+    "message": "Calling tool: tavily_search",
+    "metadata": {
+      "input": {
+        "query": "test query"
+      }
+    },
+    "id": "evt_nwiwce3",
+    "timestamp": "2026-10-30T12:18:12.652Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_1",
+    "type": "tool_output",
+    "message": "Tool tavily_search completed execution",
+    "metadata": {
+      "outputPreview": [
+        "source",
+        "query",
+        "resultsCount",
+        "retrievalDate",
+        "results"
+      ]
+    },
+    "id": "evt_tj46gs7",
+    "timestamp": "2026-10-30T12:18:12.652Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_1",
+    "type": "verification_completed",
+    "message": "Task verification: PASS (Score: 100%)",
+    "metadata": {
+      "verification": {
+        "verified": true,
+        "score": 100,
+        "criteria": "Return at least 3 verified source URLs and content snippets",
+        "notes": "Successfully validated returned sources and preservation of original URLs (100% verification score).",
+        "checkedAt": "2026-10-30T12:18:12.652Z"
+      }
+    },
+    "id": "evt_6eugatz",
+    "timestamp": "2026-10-30T12:18:12.652Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_1",
+    "type": "task_completed",
+    "message": "Task completed: Collect Source Data",
+    "id": "evt_iw8ct5v",
+    "timestamp": "2026-10-30T12:18:12.652Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_2",
+    "type": "task_started",
+    "message": "Starting task: Calculate Quantitative Metrics",
+    "id": "evt_g64v3co",
+    "timestamp": "2026-10-30T12:18:13.254Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_2",
+    "type": "tool_called",
+    "message": "Calling tool: calculator",
+    "metadata": {
+      "input": {
+        "expression": "1000 * 0.05"
+      }
+    },
+    "id": "evt_xumw48s",
+    "timestamp": "2026-10-30T12:18:13.254Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_2",
+    "type": "tool_output",
+    "message": "Tool calculator completed execution",
+    "metadata": {
+      "outputPreview": [
+        "expression",
+        "result"
+      ]
+    },
+    "id": "evt_who47vm",
+    "timestamp": "2026-10-30T12:18:13.255Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_2",
+    "type": "verification_completed",
+    "message": "Task verification: PASS (Score: 100%)",
+    "metadata": {
+      "verification": {
+        "verified": true,
+        "score": 100,
+        "criteria": "Numerical evaluation completed with zero NaN / divide-by-zero errors",
+        "notes": "All arithmetic operations verified.",
+        "checkedAt": "2026-10-30T12:18:13.255Z"
+      }
+    },
+    "id": "evt_kcry0wu",
+    "timestamp": "2026-10-30T12:18:13.255Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_2",
+    "type": "task_completed",
+    "message": "Task completed: Calculate Quantitative Metrics",
+    "id": "evt_dc4w9dy",
+    "timestamp": "2026-10-30T12:18:13.255Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_3",
+    "type": "task_started",
+    "message": "Starting task: Compile Verified Deliverable",
+    "id": "evt_n9pysyt",
+    "timestamp": "2026-10-30T12:18:13.856Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_3",
+    "type": "tool_called",
+    "message": "Calling tool: document_generator",
+    "metadata": {
+      "input": {
+        "format": "markdown"
+      }
+    },
+    "id": "evt_kdnh30p",
+    "timestamp": "2026-10-30T12:18:13.856Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_3",
+    "type": "tool_output",
+    "message": "Tool document_generator completed execution",
+    "metadata": {
+      "outputPreview": [
+        "status",
+        "format",
+        "generatedTimestamp",
+        "sectionsCount"
+      ]
+    },
+    "id": "evt_kb8wtc3",
+    "timestamp": "2026-10-30T12:18:13.856Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_3",
+    "type": "verification_completed",
+    "message": "Task verification: PASS (Score: 100%)",
+    "metadata": {
+      "verification": {
+        "verified": true,
+        "score": 100,
+        "criteria": "Standard 10-section report compiled with valid Markdown and citations",
+        "notes": "Document generator satisfied structure requirements.",
+        "checkedAt": "2026-10-30T12:18:13.856Z"
+      }
+    },
+    "id": "evt_17yvh5v",
+    "timestamp": "2026-10-30T12:18:13.856Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "taskId": "step_3",
+    "type": "task_completed",
+    "message": "Task completed: Compile Verified Deliverable",
+    "id": "evt_hd1dm3t",
+    "timestamp": "2026-10-30T12:18:13.856Z"
+  },
+  {
+    "workflowId": "test_wf_1793362692651",
+    "type": "workflow_completed",
+    "message": "Workflow completed successfully. All outputs verified and report generated.",
+    "id": "evt_ayj97gd",
+    "timestamp": "2026-10-30T12:18:14.458Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "type": "task_started",
+    "message": "Workflow execution started: \"Automated Test Workflow Verification\"",
+    "id": "evt_b0xnupa",
+    "timestamp": "2026-10-30T12:19:17.393Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_1",
+    "type": "task_started",
+    "message": "Starting task: Collect Source Data",
+    "id": "evt_ajpl14m",
+    "timestamp": "2026-10-30T12:19:17.394Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_1",
+    "type": "tool_called",
+    "message": "Calling tool: tavily_search",
+    "metadata": {
+      "input": {
+        "query": "test query"
+      }
+    },
+    "id": "evt_71agvvr",
+    "timestamp": "2026-10-30T12:19:17.394Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_1",
+    "type": "tool_output",
+    "message": "Tool tavily_search completed execution",
+    "metadata": {
+      "outputPreview": [
+        "source",
+        "query",
+        "resultsCount",
+        "retrievalDate",
+        "results"
+      ]
+    },
+    "id": "evt_9g1ni08",
+    "timestamp": "2026-10-30T12:19:17.394Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_1",
+    "type": "verification_completed",
+    "message": "Task verification: PASS (Score: 100%)",
+    "metadata": {
+      "verification": {
+        "verified": true,
+        "score": 100,
+        "criteria": "Return at least 3 verified source URLs and content snippets",
+        "notes": "Successfully validated returned sources and preservation of original URLs (100% verification score).",
+        "checkedAt": "2026-10-30T12:19:17.394Z"
+      }
+    },
+    "id": "evt_uipyd2g",
+    "timestamp": "2026-10-30T12:19:17.394Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_1",
+    "type": "task_completed",
+    "message": "Task completed: Collect Source Data",
+    "id": "evt_iz6p96m",
+    "timestamp": "2026-10-30T12:19:17.394Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_2",
+    "type": "task_started",
+    "message": "Starting task: Calculate Quantitative Metrics",
+    "id": "evt_vokcquj",
+    "timestamp": "2026-10-30T12:19:17.996Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_2",
+    "type": "tool_called",
+    "message": "Calling tool: calculator",
+    "metadata": {
+      "input": {
+        "expression": "1000 * 0.05"
+      }
+    },
+    "id": "evt_4zh97c3",
+    "timestamp": "2026-10-30T12:19:17.996Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_2",
+    "type": "tool_output",
+    "message": "Tool calculator completed execution",
+    "metadata": {
+      "outputPreview": [
+        "expression",
+        "result"
+      ]
+    },
+    "id": "evt_178m5ul",
+    "timestamp": "2026-10-30T12:19:17.997Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_2",
+    "type": "verification_completed",
+    "message": "Task verification: PASS (Score: 100%)",
+    "metadata": {
+      "verification": {
+        "verified": true,
+        "score": 100,
+        "criteria": "Numerical evaluation completed with zero NaN / divide-by-zero errors",
+        "notes": "All arithmetic operations verified.",
+        "checkedAt": "2026-10-30T12:19:17.997Z"
+      }
+    },
+    "id": "evt_vn049sl",
+    "timestamp": "2026-10-30T12:19:17.997Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_2",
+    "type": "task_completed",
+    "message": "Task completed: Calculate Quantitative Metrics",
+    "id": "evt_w4sjxe2",
+    "timestamp": "2026-10-30T12:19:17.997Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_3",
+    "type": "task_started",
+    "message": "Starting task: Compile Verified Deliverable",
+    "id": "evt_u4akwo5",
+    "timestamp": "2026-10-30T12:19:18.598Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_3",
+    "type": "tool_called",
+    "message": "Calling tool: document_generator",
+    "metadata": {
+      "input": {
+        "format": "markdown"
+      }
+    },
+    "id": "evt_sisx3ns",
+    "timestamp": "2026-10-30T12:19:18.599Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_3",
+    "type": "tool_output",
+    "message": "Tool document_generator completed execution",
+    "metadata": {
+      "outputPreview": [
+        "status",
+        "format",
+        "generatedTimestamp",
+        "sectionsCount"
+      ]
+    },
+    "id": "evt_0105w2l",
+    "timestamp": "2026-10-30T12:19:18.599Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_3",
+    "type": "verification_completed",
+    "message": "Task verification: PASS (Score: 100%)",
+    "metadata": {
+      "verification": {
+        "verified": true,
+        "score": 100,
+        "criteria": "Standard 10-section report compiled with valid Markdown and citations",
+        "notes": "Document generator satisfied structure requirements.",
+        "checkedAt": "2026-10-30T12:19:18.599Z"
+      }
+    },
+    "id": "evt_vrstcxj",
+    "timestamp": "2026-10-30T12:19:18.599Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "taskId": "step_3",
+    "type": "task_completed",
+    "message": "Task completed: Compile Verified Deliverable",
+    "id": "evt_kluwvwb",
+    "timestamp": "2026-10-30T12:19:18.599Z"
+  },
+  {
+    "workflowId": "test_wf_1793362757393",
+    "type": "workflow_completed",
+    "message": "Workflow completed successfully. All outputs verified and report generated.",
+    "id": "evt_vtxympz",
+    "timestamp": "2026-10-30T12:19:19.202Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "type": "task_started",
+    "message": "Workflow execution started: \"Automated Test Workflow Verification\"",
+    "id": "evt_jgkdumq",
+    "timestamp": "2026-10-30T12:20:11.895Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_1",
+    "type": "task_started",
+    "message": "Starting task: Collect Source Data",
+    "id": "evt_25d0xhm",
+    "timestamp": "2026-10-30T12:20:11.896Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_1",
+    "type": "tool_called",
+    "message": "Calling tool: tavily_search",
+    "metadata": {
+      "input": {
+        "query": "test query"
+      }
+    },
+    "id": "evt_dqqgjol",
+    "timestamp": "2026-10-30T12:20:11.896Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_1",
+    "type": "tool_output",
+    "message": "Tool tavily_search completed execution",
+    "metadata": {
+      "outputPreview": [
+        "source",
+        "query",
+        "resultsCount",
+        "retrievalDate",
+        "results"
+      ]
+    },
+    "id": "evt_62giky8",
+    "timestamp": "2026-10-30T12:20:11.896Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_1",
+    "type": "verification_completed",
+    "message": "Task verification: PASS (Score: 100%)",
+    "metadata": {
+      "verification": {
+        "verified": true,
+        "score": 100,
+        "criteria": "Return at least 3 verified source URLs and content snippets",
+        "notes": "Successfully validated returned sources and preservation of original URLs (100% verification score).",
+        "checkedAt": "2026-10-30T12:20:11.896Z"
+      }
+    },
+    "id": "evt_254eziw",
+    "timestamp": "2026-10-30T12:20:11.896Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_1",
+    "type": "task_completed",
+    "message": "Task completed: Collect Source Data",
+    "id": "evt_1f68fqo",
+    "timestamp": "2026-10-30T12:20:11.896Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_2",
+    "type": "task_started",
+    "message": "Starting task: Calculate Quantitative Metrics",
+    "id": "evt_fywm1ph",
+    "timestamp": "2026-10-30T12:20:12.498Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_2",
+    "type": "tool_called",
+    "message": "Calling tool: calculator",
+    "metadata": {
+      "input": {
+        "expression": "1000 * 0.05"
+      }
+    },
+    "id": "evt_chze6ie",
+    "timestamp": "2026-10-30T12:20:12.498Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_2",
+    "type": "tool_output",
+    "message": "Tool calculator completed execution",
+    "metadata": {
+      "outputPreview": [
+        "expression",
+        "result"
+      ]
+    },
+    "id": "evt_aegp1fk",
+    "timestamp": "2026-10-30T12:20:12.498Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_2",
+    "type": "verification_completed",
+    "message": "Task verification: PASS (Score: 100%)",
+    "metadata": {
+      "verification": {
+        "verified": true,
+        "score": 100,
+        "criteria": "Numerical evaluation completed with zero NaN / divide-by-zero errors",
+        "notes": "All arithmetic operations verified.",
+        "checkedAt": "2026-10-30T12:20:12.498Z"
+      }
+    },
+    "id": "evt_iscr5ud",
+    "timestamp": "2026-10-30T12:20:12.498Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_2",
+    "type": "task_completed",
+    "message": "Task completed: Calculate Quantitative Metrics",
+    "id": "evt_2leux17",
+    "timestamp": "2026-10-30T12:20:12.498Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_3",
+    "type": "task_started",
+    "message": "Starting task: Compile Verified Deliverable",
+    "id": "evt_xuzkpkh",
+    "timestamp": "2026-10-30T12:20:13.099Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_3",
+    "type": "tool_called",
+    "message": "Calling tool: document_generator",
+    "metadata": {
+      "input": {
+        "format": "markdown"
+      }
+    },
+    "id": "evt_qmc53qh",
+    "timestamp": "2026-10-30T12:20:13.100Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_3",
+    "type": "tool_output",
+    "message": "Tool document_generator completed execution",
+    "metadata": {
+      "outputPreview": [
+        "status",
+        "format",
+        "generatedTimestamp",
+        "sectionsCount"
+      ]
+    },
+    "id": "evt_qm51xg4",
+    "timestamp": "2026-10-30T12:20:13.100Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_3",
+    "type": "verification_completed",
+    "message": "Task verification: PASS (Score: 100%)",
+    "metadata": {
+      "verification": {
+        "verified": true,
+        "score": 100,
+        "criteria": "Standard 10-section report compiled with valid Markdown and citations",
+        "notes": "Document generator satisfied structure requirements.",
+        "checkedAt": "2026-10-30T12:20:13.100Z"
+      }
+    },
+    "id": "evt_s4pq9q2",
+    "timestamp": "2026-10-30T12:20:13.100Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "taskId": "step_3",
+    "type": "task_completed",
+    "message": "Task completed: Compile Verified Deliverable",
+    "id": "evt_mblbf1g",
+    "timestamp": "2026-10-30T12:20:13.100Z"
+  },
+  {
+    "workflowId": "test_wf_1793362811895",
+    "type": "workflow_completed",
+    "message": "Workflow completed successfully. All outputs verified and report generated.",
+    "id": "evt_3nlnpve",
+    "timestamp": "2026-10-30T12:20:13.703Z"
   }
 ]

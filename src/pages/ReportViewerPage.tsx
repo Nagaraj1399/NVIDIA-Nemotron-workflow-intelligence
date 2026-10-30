@@ -23,17 +23,38 @@ export const ReportViewerPage: React.FC = () => {
   const navigate = useNavigate();
 
   const [report, setReport] = useState<WorkflowReport | null>(null);
+  const [allReports, setAllReports] = useState<WorkflowReport[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    if (!id) return;
     setLoading(true);
-    api.getReport(id)
-      .then(setReport)
-      .catch(err => setError(err.message || 'Report not found'))
-      .finally(() => setLoading(false));
+    if (id) {
+      api.getReport(id)
+        .then(rep => {
+          setReport(rep);
+          return api.getReports();
+        })
+        .then(reps => {
+          if (reps) setAllReports(reps);
+        })
+        .catch(err => setError(err.message || 'Report not found'))
+        .finally(() => setLoading(false));
+    } else {
+      // If navigating to /app/reports without specific ID, load latest report
+      api.getReports()
+        .then(reps => {
+          setAllReports(reps);
+          if (reps && reps.length > 0) {
+            setReport(reps[0]);
+          } else {
+            setError('No reports generated yet. Run a workflow to create your first report.');
+          }
+        })
+        .catch(err => setError(err.message || 'Failed to load reports'))
+        .finally(() => setLoading(false));
+    }
   }, [id]);
 
   const handleCopyMarkdown = () => {
